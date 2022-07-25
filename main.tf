@@ -1,12 +1,3 @@
-resource "snowflake_pipe" "pipe" {
-  name           = upper(var.pipe_name)
-  database       = var.database
-  schema         = var.schema
-  comment        = "Managed by terraform"
-  copy_statement = local.pipe_copy_statement
-  auto_ingest    = true
-}
-
 locals {
   pipe_copy_statement = length(var.pipe_copy_statement) != 0 ? var.pipe_copy_statement : join("", [
     "copy into ",
@@ -14,7 +5,15 @@ locals {
     "from @",
     "${var.database}.${var.schema}.${snowflake_stage.stage.name} "
   ])
+}
 
+resource "snowflake_pipe" "pipe" {
+  name           = upper(var.pipe_name)
+  database       = var.database
+  schema         = var.schema
+  comment        = "Managed by terraform"
+  copy_statement = local.pipe_copy_statement
+  auto_ingest    = true
 }
 
 resource "snowflake_stage" "stage" {
@@ -37,4 +36,3 @@ resource "aws_s3_bucket_notification" "notification" {
     ]
   }
 }
-

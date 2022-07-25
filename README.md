@@ -17,14 +17,17 @@ $ terraform apply
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.1 |
+| <a name="requirement_snowflake"></a> [snowflake](#requirement\_snowflake) | >=0.40.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
-| <a name="provider_snowflake"></a> [snowflake](#provider\_snowflake) | n/a |
+| <a name="provider_snowflake"></a> [snowflake](#provider\_snowflake) | >=0.40.0 |
 
 ## Modules
 
@@ -35,8 +38,8 @@ No modules.
 | Name | Type |
 |------|------|
 | [aws_s3_bucket_notification.notification](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_notification) | resource |
-| [snowflake_pipe.pipe](https://registry.terraform.io/providers/chanzuckerberg/snowflake/latest/docs/resources/pipe) | resource |
-| [snowflake_stage.stage](https://registry.terraform.io/providers/chanzuckerberg/snowflake/latest/docs/resources/stage) | resource |
+| [snowflake_pipe.pipe](https://registry.terraform.io/providers/Snowflake-Labs/snowflake/latest/docs/resources/pipe) | resource |
+| [snowflake_stage.stage](https://registry.terraform.io/providers/Snowflake-Labs/snowflake/latest/docs/resources/stage) | resource |
 
 ## Inputs
 
@@ -68,4 +71,4 @@ Apache 2 Licensed. See [LICENSE](https://github.com/Infostrux-Solutions/terrafor
 
 ## Authors
 
-Module is maintained by [Matt van Zanten](https://github.com/orgs/Infostrux-Solutions/people/mvanzanten) with help from [these awesome contributors](https://github.com/Infostrux-Solutions/terraform-sf-source/graphs/contributors).
+Module is maintained by [Infostrux Solutions](mailto:opensource@infostrux.com)
