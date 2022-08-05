@@ -38,12 +38,6 @@ variable "pipe_name" {
   description = "Object for the pipe's stage configuration"
 }
 
-variable "pipe_auto_ingest" {
-  type        = bool
-  description = "If true, enable auto ingest"
-  default     = true
-}
-
 variable "pipe_copy_statement" {
   type        = string
   description = "Pipe sql query to copy the data from S3 to the ingest table"
