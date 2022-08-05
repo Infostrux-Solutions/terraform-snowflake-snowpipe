@@ -20,14 +20,15 @@ $ terraform apply
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.1 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >=4.25.0 |
 | <a name="requirement_snowflake"></a> [snowflake](#requirement\_snowflake) | >=0.40.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
-| <a name="provider_snowflake"></a> [snowflake](#provider\_snowflake) | >=0.40.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.25.0 |
+| <a name="provider_snowflake"></a> [snowflake](#provider\_snowflake) | 0.40.0 |
 
 ## Modules
 
@@ -48,7 +49,6 @@ No modules.
 | <a name="input_bucket_id"></a> [bucket\_id](#input\_bucket\_id) | Pipe's bucket where to fetch the data | `string` | n/a | yes |
 | <a name="input_database"></a> [database](#input\_database) | Database for the pipe and the stage | `string` | n/a | yes |
 | <a name="input_file_format"></a> [file\_format](#input\_file\_format) | Table for the pipe and the stage | `string` | n/a | yes |
-| <a name="input_pipe_auto_ingest"></a> [pipe\_auto\_ingest](#input\_pipe\_auto\_ingest) | If true, enable auto ingest | `bool` | `true` | no |
 | <a name="input_pipe_copy_statement"></a> [pipe\_copy\_statement](#input\_pipe\_copy\_statement) | Pipe sql query to copy the data from S3 to the ingest table | `string` | `""` | no |
 | <a name="input_pipe_name"></a> [pipe\_name](#input\_pipe\_name) | Object for the pipe's stage configuration | `string` | n/a | yes |
 | <a name="input_schema"></a> [schema](#input\_schema) | Schema for the pipe and the stage | `string` | n/a | yes |
@@ -61,9 +61,8 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_pipe_id"></a> [pipe\_id](#output\_pipe\_id) | n/a |
-| <a name="output_stage_id"></a> [stage\_id](#output\_stage\_id) | n/a |
-
+| <a name="output_pipe_id"></a> [pipe\_id](#output\_pipe\_id) | ID of the pipe |
+| <a name="output_stage_id"></a> [stage\_id](#output\_stage\_id) | ID of the stage |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## License
 
