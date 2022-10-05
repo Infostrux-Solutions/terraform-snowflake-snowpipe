@@ -3,4 +3,8 @@ updates:
   - package-ecosystem: "terraform" 
     directory: "/" 
     schedule:
-      interval: "daily"
+      interval: "weekly"
+    
+    assigness:
+      - "augustorosa"
+      - "mvanzanten"
