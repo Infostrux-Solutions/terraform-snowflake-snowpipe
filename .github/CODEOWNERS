@@ -1,0 +1,12 @@
+# These owners will be the default owners for everything in
+# the repo. Unless a later match takes precedence,
+# @Infostrux-Solutions/open-source-maintainers will be requested
+# for review when someone opens a pull request.
+*       @Infostrux-Solutions/open-source-maintainers
+
+# Assign owners to the upcoming release of this module.
+# The files listed here are specific to an upcoming release
+# and can be removed once published.
+.github/         @Infostrux-Solutions/open-source-releases
+.releaserc.json  @Infostrux-Solutions/open-source-releases
+README.md        @Infostrux-Solutions/open-source-releases
