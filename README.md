@@ -1,20 +1,25 @@
 # Snowflake Snowpipe Terraform Module
 
-Terraform module that create all the Snowflake resources to received data from snowpipe.
+Terraform module that creates Snowflake resources to receive data from Snowpipe.
 
 ## Usage
 
-To run this example you need to execute:
-
-```bash
-$ terraform init
-$ terraform plan
-$ terraform apply
+```hcl
+module "snowpipe" {
+  source  = "Infostrux-Solutions/snowpipe/snowflake"
+  database                 = "DEV_INGEST"
+  schema                   = "PUBLIC"
+  table                    = "CUSTOMERS"
+  pipe_name                = "DEV_ANALYTICS_PIPE"
+  stage_name               = "DEV_ANALYTICS_STAGE"
+  stage_url                = "s3://analysis/encrypted_files/"
+  file_format              = "CSV"
+  bucket_id                = "stage-bucket-8913276-fake"
+  storage_integration_name = "Example Integration"
+}
 ```
 
- Run `terraform destroy` when you don't need the user.
-
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
@@ -27,8 +32,8 @@ $ terraform apply
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.25.0 |
-| <a name="provider_snowflake"></a> [snowflake](#provider\_snowflake) | 0.40.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >=4.25.0 |
+| <a name="provider_snowflake"></a> [snowflake](#provider\_snowflake) | >=0.40.0 |
 
 ## Modules
 
@@ -63,11 +68,10 @@ No modules.
 |------|-------------|
 | <a name="output_pipe_id"></a> [pipe\_id](#output\_pipe\_id) | ID of the pipe |
 | <a name="output_stage_id"></a> [stage\_id](#output\_stage\_id) | ID of the stage |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-## License
-
-Apache 2 Licensed. See [LICENSE](https://github.com/Infostrux-Solutions/terraform-sf-source/compare/initial-commit?expand=1/tree/master/LICENSE) for full details.
+<!-- END_TF_DOCS -->
 
 ## Authors
+Module is maintained by [Infostrux Solutions](mailto:opensource@infostrux.com) with help from [these awesome contributors](https://github.com/Infostrux-Solutions/terraform-snowflake-snowpipe/graphs/contributors).
 
-Module is maintained by [Infostrux Solutions](mailto:opensource@infostrux.com)
+## License
+Apache 2 Licensed. See [LICENSE](https://github.com/Infostrux-Solutions/terraform-snowflake-snowpipe/blob/main/LICENSE) for full details.
