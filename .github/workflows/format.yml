@@ -1,0 +1,32 @@
+name: Format Code
+
+on:
+  pull_request
+
+permissions:
+  contents: write
+
+jobs:
+  format:
+    name: Format Code
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.pull_request.head.ref }}
+        token: ${{ secrets.TERRAFORM_FMT_TOKEN }}
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: "1.0.0"
+    - name: Format Code
+      run: |
+        terraform fmt -recursive .
+    - name: Commit Format Changes
+      run: |
+        git config user.name 'github-actions[bot]'
+        git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+        git add .
+        git diff-index --quiet HEAD || git commit -m "terraform-fmt: Auto format codebase"
+        git push
